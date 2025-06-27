@@ -1,0 +1,131 @@
+[
+    {
+        "id": "365269277e20a713",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0db224384db3ce63",
+        "type": "inject",
+        "z": "365269277e20a713",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 240,
+        "wires": [
+            [
+                "e246fbab0bc70c9c"
+            ]
+        ]
+    },
+    {
+        "id": "e246fbab0bc70c9c",
+        "type": "http request",
+        "z": "365269277e20a713",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.openweathermap.org/data/2.5/weather?q=Luxembourg&units=metric&appid=dd23ad94f206a6655e4d0dc9f2629032",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 470,
+        "y": 240,
+        "wires": [
+            [
+                "5b3d667b35676676",
+                "b3ac1d7c15d288f1"
+            ]
+        ]
+    },
+    {
+        "id": "b3ac1d7c15d288f1",
+        "type": "function",
+        "z": "365269277e20a713",
+        "name": "function 1",
+        "func": "let data = msg.payload;  // Direkt übernehmen, kein JSON.parse\n\nfunction bewerteWetter(data) {\n    const rain = data.rain?.[\"1h\"] || 0;\n    const wind = data.wind?.speed || 0;\n    const temp = data.main?.temp || 0;\n\n    if (rain > 0) {\n        return \"❌ Nicht fahren – Es regnet!\";\n    } else if (wind > 40) {\n        return \"⚠️ Vorsicht – Wind ist stark!\";\n    } else if (temp < 5) {\n        return \"⚠️ Sehr kalt – besser nicht!\";\n    } else {\n        return \"✅ Perfektes Wetter zum Fahren!\";\n    }\n}\n\nmsg.payload = bewerteWetter(data);\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 60,
+        "wires": [
+            [
+                "1f856733474403b1"
+            ]
+        ]
+    },
+    {
+        "id": "5b3d667b35676676",
+        "type": "debug",
+        "z": "365269277e20a713",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "1f856733474403b1",
+        "type": "debug",
+        "z": "365269277e20a713",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "247297204f8df3c7",
+        "type": "rpi-gpio in",
+        "z": "365269277e20a713",
+        "name": "",
+        "pin": "36",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "e246fbab0bc70c9c"
+            ]
+        ]
+    }
+]
