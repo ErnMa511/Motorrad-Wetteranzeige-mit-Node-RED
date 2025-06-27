@@ -87,4 +87,8 @@ Das Ziel: **"Kann ich heute Motorrad fahren?" – in einer Sekunde beantwortet.*
 
 ---
 
-> **Tipp:** Der Code für die Entscheidungslogik befindet sich im Flow-Ordner. API-Zugangsdaten müssen über Umgebungsvariablen gesetzt werden.
+## 🗂 Projektplanung
+
+Die gesamte Aufgabenplanung ist im GitHub Planner einsehbar:  
+➡️ [Zur Projektplanung auf GitHub](https://github.com/ErnMa511/Motorrad-Wetteranzeige-mit-Node-RED/projects/1)
+
