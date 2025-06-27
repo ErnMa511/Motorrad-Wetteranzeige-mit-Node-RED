@@ -90,5 +90,5 @@ Das Ziel: **"Kann ich heute Motorrad fahren?" – in einer Sekunde beantwortet.*
 ## 🗂 Projektplanung
 
 Die gesamte Aufgabenplanung ist im GitHub Planner einsehbar:  
-➡️ [Zur Projektplanung auf GitHub](https://github.com/ErnMa511/Motorrad-Wetteranzeige-mit-Node-RED/projects/1)
+➡️ [Zur Projektplanung auf GitHub](https://github.com/users/ErnMa511/projects/1)
 
