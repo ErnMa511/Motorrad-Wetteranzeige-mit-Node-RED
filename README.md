@@ -17,6 +17,7 @@ Das Ziel: **"Kann ich heute Motorrad fahren?" – in einer Sekunde beantwortet.*
 - **Node-RED Dashboard** – zur Darstellung der Auswertung
 - **JavaScript** – für Entscheidungslogik in Function-Nodes
 - (Optional) **Raspberry Pi mit Display** – für eine lokale Anzeige
+![image](https://github.com/user-attachments/assets/990ed50f-36a4-47a6-b500-a2ea598e8eb8)
 
 ---
 
@@ -59,6 +60,7 @@ Das Ziel: **"Kann ich heute Motorrad fahren?" – in einer Sekunde beantwortet.*
 - Verschiedene Wettersituationen durchtesten
 - Anzeige auf mobilen Geräten prüfen
 - Schwellenwerte feinjustieren
+![Screenshot 2025-06-27 133552](https://github.com/user-attachments/assets/ae7c498f-71ec-46fd-92a2-30ea48955c82)
 
 ---
 
